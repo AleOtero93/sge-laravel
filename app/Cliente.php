@@ -11,7 +11,7 @@ use App\Dispositivo;
 class Cliente extends Usuario
 {
     private $tipoDocumento;
-    private $numeroDNI;
+    private $numeroDocumento;
     private $fechaAlta;
     private $categoria;
     private $dispositivos;
@@ -47,9 +47,9 @@ class Cliente extends Usuario
      *
      * @return mixed
      */
-    public function getNumeroDNI()
+    public function getNumeroDocumento()
     {
-        return $this->numeroDNI;
+        return $this->numeroDocumento;
     }
 
     /**
@@ -59,9 +59,9 @@ class Cliente extends Usuario
      *
      * @return self
      */
-    public function setNumeroDNI($numeroDNI)
+    public function setNumeroDocumento($numeroDocumento)
     {
-        $this->numeroDNI = $numeroDNI;
+        $this->numeroDocumento = $numeroDocumento;
 
         return $this;
     }
@@ -162,6 +162,9 @@ class Cliente extends Usuario
     *
     */
     public function addDispositivo($dispositivo){
+    	if($this->dispositivos === NULL){
+    		$this->dispositivos = array();
+    	}
     	array_push($this->dispositivos, $dispositivo);
     }
 
